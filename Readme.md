@@ -36,11 +36,11 @@ pip install dlib
 
 从光妹变超A光姐！
 
-![](D:\files\cxcy\git\resultShow\1.jpg)
+<img src="https://github.com/zhxjz/LipstickTest/raw/master/resultShow/1.jpg" height="300"/>
 
 我光妹就是涂死亡色号都好看的自带光环小天使！
 
-![](D:\files\cxcy\git\resultShow\2.jpg)
+<img src="https://github.com/zhxjz/LipstickTest/raw/master/resultShow/2.jpg" height="300"/>
 
 
 
