@@ -87,8 +87,8 @@ def feature(image_file, lipstick_color):
     detector = dlib.get_frontal_face_detector()
     predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
     image = cv2.imread(image_file)
-    image = resize(image, width=1200)
-    print(image.shape)
+    image = resize(image, width=600)
+    # print(image.shape)
     # 转为灰度图
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     # 灰度图里定位人脸
@@ -127,13 +127,38 @@ def feature(image_file, lipstick_color):
 
     image = cv2.cvtColor(image, cv2.COLOR_HSV2BGR)
     # 高斯滤波是bfs尝试失败来做边缘柔和处理的
-    image = cv2.GaussianBlur(image, (7, 7), 0)
+    # image = cv2.GaussianBlur(image, (7, 7), 0)
     return image
 
-if __name__ == "__main__":
+def update(h,s):
     input_image_path = "test.jpg"  # 输入图像.jpg
-    lipstick_color = [175, 150, 0]  # 嘴唇颜色
+    lipstick_color = [h,s, 0]  # 嘴唇颜色
     image_output = feature(input_image_path, lipstick_color)  # 处理图像
-    cv2.imshow("Output", image_output)  # 显示
-    cv2.imwrite("process2+" + input_image_path, image_output)  # 保存
-    cv2.waitKey(0)
+    cv2.imshow("output", image_output)  # 显示
+    # cv2.imwrite("process2+" + input_image_path, image_output)  # 保存
+    # cv2.waitKey(0)
+
+def nothing(x):
+    pass
+
+if __name__=="__main__":
+    cv2.namedWindow('output')
+    cv2.createTrackbar('H','output',20,50,nothing)
+    cv2.createTrackbar('S', 'output', 110, 255, nothing)
+    cv2.createTrackbar('on', 'output', 1, 1, nothing)
+    while(1):
+        h = cv2.getTrackbarPos('H','output')+155
+        if(h>180):
+            h-=180
+        s = cv2.getTrackbarPos('S','output')
+        tag = cv2.getTrackbarPos('on','output')
+        if s == -1:
+            break
+        if tag != 0:
+            # print(h,s)
+            update(h,s)
+        k = cv2.waitKey(1) & 0xFF4
+        if k == 27:
+            break
+
+    cv2.destroyAllWindows()
