@@ -46,7 +46,9 @@ pip install dlib
 
 <img src="https://github.com/zhxjz/LipstickTest/raw/master/resultShow/2.jpg" height="300"/>
 
-<img src="https://github.com/zhxjz/LipstickTest/raw/master/resultShow/UI.gif" height="300"/>
+简单UI界面：
+
+<img src="https://github.com/zhxjz/LipstickTest/raw/master/resultShow/UI.gif" height="600"/>
 
 #### 后续组员完善的尝试方向（4.12-4.23时段每天晚上十点check）：
 
